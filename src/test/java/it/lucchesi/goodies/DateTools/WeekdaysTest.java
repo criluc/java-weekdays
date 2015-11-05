@@ -155,5 +155,23 @@ public class WeekdaysTest {
 		val startEndSunday = DateTools.weekdays(new LocalDate(2015,10,3), new LocalDate(2015,10,11));
 		assertThat(startEndSunday).isEqualTo(5);
 	}
+	
+	@Test
+	public void checkSameWeekDay() {
+		val startEndSunday = DateTools.weekdays(new LocalDate(2015,10,2), new LocalDate(2015,10,2));
+		assertThat(startEndSunday).isEqualTo(1);
+	}
+	
+	@Test
+	public void checkSameWeekDaySaturday() {
+		val startEndSameDaySaturday = DateTools.weekdays(new LocalDate(2015,10,3), new LocalDate(2015,10,3));
+		assertThat(startEndSameDaySaturday).isEqualTo(0);
+	}
+	
+	@Test
+	public void checkSameWeekDaySaunday() {
+		val startEndSameDaySunday = DateTools.weekdays(new LocalDate(2015,10,4), new LocalDate(2015,10,4));
+		assertThat(startEndSameDaySunday).isEqualTo(0);
+	}
 
 }
